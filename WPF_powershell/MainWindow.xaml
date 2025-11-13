@@ -1,37 +1,40 @@
 ﻿<Window x:Class="WPF_powershell.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Czyszczenie systemu" Height="550" Width="400">
+        Title="Narzędzia Systemowe" Height="600" Width="400">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="20">
 
             <!-- Sekcja: Czyszczenie systemu -->
-            <TextBlock Text="🧹 Narzędzia systemowe" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
-            <Button Content="Wyczyść śmieci" Height="35" Click="Czysc" Margin="0,0,0,10"/>
-            <Button Content="Skanuj dysk" Height="35" Margin="0,0,0,20"/>
+            <TextBlock Text="🧹 Narzedzia systemowe" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            <Button Content="Wyczysc smieci" Height="35" Click="Czysc" Margin="0,0,0,10"/>
+            <Button Click="skanuj" Content="Skanuj dysk" Height="35" Margin="0,0,0,20"/>
 
-            <!-- Sekcja: Rozmiar plików -->
-            <TextBlock Text="Rozmiar plików:" FontWeight="Bold" Margin="0,0,0,5"/>
+            <!-- Sekcja: Rozmiar plikow -->
+            <TextBlock Text="Rozmiar plikow:" FontWeight="Bold" Margin="0,0,0,5"/>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Od:" VerticalAlignment="Center"/>
-                <TextBox Width="60" Margin="5,0"/>
+                <TextBox x:Name="OD" Width="60" Margin="5,0"/>
                 <TextBlock Text="Do:" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                <TextBox Width="60" Margin="5,0"/>
+                <TextBox x:Name="DO" Width="60" Margin="5,0"/>
                 <TextBlock Text="MB" VerticalAlignment="Center" Margin="5,0,0,0"/>
             </StackPanel>
+
+            <!-- Nowe pole: sciezka do skanowania -->
+            <TextBlock Text="Sciezka do skanowania:" FontWeight="Bold" Margin="0,10,0,5"/>
+            <TextBox x:Name="SciezkaSkanu" Height="20" Text="C:\Users\User\Downloads" Margin="0,0,0,10"/>
 
             <!-- Sekcja: Pobieranie -->
             <TextBlock Text="📦 Instalacja aplikacji" FontSize="18" FontWeight="Bold" Margin="0,10,0,10"/>
             <TextBlock Text="Wybierz aplikacje do pobrania:" Margin="0,0,0,5"/>
-            <ListBox SelectionMode="Multiple" Height="120" Margin="0,0,0,10">
+            <ListBox x:Name="ListaApek" SelectionMode="Multiple" Height="120" Margin="0,0,0,10">
                 <ListBoxItem>Brave</ListBoxItem>
                 <ListBoxItem>Spotify</ListBoxItem>
                 <ListBoxItem>Visual Studio Code</ListBoxItem>
-                <ListBoxItem>CMDer</ListBoxItem>
                 <ListBoxItem>npm</ListBoxItem>
                 <ListBoxItem>Git</ListBoxItem>
             </ListBox>
-            <Button Content="Pobierz" Height="35" Margin="0,0,0,20"/>
+            <Button Click="pobierz" Content="Pobierz" Height="35" Margin="0,0,0,20"/>
 
             <!-- Sekcja: Logi -->
             <TextBlock Text="Logi:" FontWeight="Bold" Margin="0,10,0,5"/>
